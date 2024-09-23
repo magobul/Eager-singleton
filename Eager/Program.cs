@@ -6,10 +6,12 @@ public class Program
     {
         var servers = Servers.Singleton;
 
-        Console.WriteLine(servers.AddServer("http://apple.com")); // True
-        Console.WriteLine(servers.AddServer("https://explorer.com")); // True
-        Console.WriteLine(servers.AddServer("ftp://axe.com")); // False
-        Console.WriteLine(servers.AddServer("http://apple.com")); // False (дубликат)
+        Console.WriteLine(servers.AddServer("http://apple.com")); 
+        Console.WriteLine(servers.AddServer("https://explorer.com")); 
+        Console.WriteLine(servers.AddServer("http://eagle.com"));
+        Console.WriteLine(servers.AddServer("ftp://axe.com")); 
+        Console.WriteLine(servers.AddServer("http://apple.com")); 
+        Console.WriteLine(servers.AddServer("https://ea.com"));
 
         var httpServers = servers.GetHttpServers();
         var httpsServers = servers.GetHttpsServers();
