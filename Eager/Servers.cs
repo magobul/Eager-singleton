@@ -21,21 +21,20 @@ namespace Eager
 
         public bool AddServer(string serverAddress)
         {
-            if (string.IsNullOrWhiteSpace(serverAddress) ||
-                (!serverAddress.StartsWith("http://") && !serverAddress.StartsWith("https://")))
+            if (string.IsNullOrWhiteSpace(serverAddress) || (!serverAddress.StartsWith("http://") && !serverAddress.StartsWith("https://")))
             {
-                return false; // Сервер не добавлен
+                return false; 
             }
 
-            lock (lockObject) // Синхронизация
+            lock (lockObject) 
             {
-                return serverList.Add(serverAddress); // Возвращает true, если сервер добавлен
+                return serverList.Add(serverAddress); 
             }
         }
 
         public List<string> GetHttpServers()
         {
-            lock (lockObject) // Синхронизация
+            lock (lockObject) 
             {
                 var httpServers = new List<string>();
                 foreach (var server in serverList)
@@ -51,7 +50,7 @@ namespace Eager
 
         public List<string> GetHttpsServers()
         {
-            lock (lockObject) // Синхронизация
+            lock (lockObject) 
             {
                 var httpsServers = new List<string>();
                 foreach (var server in serverList)
